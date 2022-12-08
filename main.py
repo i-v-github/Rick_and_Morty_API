@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 base_url = 'https://rickandmortyapi.com/api'
 
@@ -16,6 +17,7 @@ def parse_json(response):
     charlist = []
     for item in response.get('results'):
         char = {
+            'id': item.get('id'),
             'name': item.get('name'),
             'no_ep': len(item.get('episode'))
         }
@@ -37,6 +39,8 @@ if __name__ == '__main__':
         charlist = parse_json(data)
         mainlist.extend(charlist)
 
-    # print(pages)
+    df = pd.DataFrame(mainlist)
 
-    print(len(mainlist))
+    # print(df.head(), df.tail())
+
+    df.to_csv('charlist.csv',index=False)
