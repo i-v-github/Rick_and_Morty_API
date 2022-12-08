@@ -37,6 +37,6 @@ if __name__ == '__main__':
         charlist = parse_json(data)
         mainlist.extend(charlist)
 
-    print(pages)
+    # print(pages)
 
     print(len(mainlist))
