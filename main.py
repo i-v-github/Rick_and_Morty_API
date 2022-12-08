@@ -44,3 +44,5 @@ if __name__ == '__main__':
     # print(df.head(), df.tail())
 
     df.to_csv('charlist.csv',index=False)
+
+    df.to_excel('charlist.xlsx',index=False)
